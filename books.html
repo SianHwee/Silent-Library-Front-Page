@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silent Library | Books List</title>
+  <meta name="description" content="Browse the Silent Library catalogue — search and filter fiction, non-fiction, self-development and children's titles.">
+  <!-- Fonts, Bootstrap, icons and custom styles in one minified request -->
+  <link rel="stylesheet" href="css/silent-library.min.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" as="image" href="images/books-header.webp" fetchpriority="high">
+  <script>document.documentElement.classList.add("js-reveal");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+
+  <!-- ===================== HEADER ===================== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNav" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><i class="bi bi-book-half" aria-hidden="true"></i> Silent Library</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto text-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="books.html">Books</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.html">Events &amp; Promotions</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="sitemap.html">Sitemap</a></li>
+            <li class="nav-item"><a class="nav-link" href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+  <!-- ===================== PAGE HEADER ===================== -->
+  <section class="page-header" style="background-image: url('images/books-header.webp');">
+    <div class="container">
+      <p class="breadcrumb-custom mb-2"><a href="index.html">Home</a> / <span>Books List</span></p>
+      <h1>Our Book Collection</h1>
+      <p class="lead mb-0">Search and filter through 12,400+ titles across every genre.</p>
+    </div>
+  </section>
+
+  <!-- ===================== FILTER BAR ===================== -->
+  <section class="py-4 bg-cream-dark">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <div class="input-group">
+            <span class="input-group-text bg-white"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <label for="bookSearch" class="visually-hidden">Search books by title or author</label>
+            <input type="text" id="bookSearch" class="form-control" placeholder="Search by title or author..." aria-describedby="resultCount">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="genreFilter" class="visually-hidden">Filter books by genre</label>
+          <select id="genreFilter" class="form-select" aria-label="Filter books by genre">
+            <option value="all">All Genres</option>
+            <option value="fiction">Classic Fiction</option>
+            <option value="nonfiction">Non-Fiction</option>
+            <option value="self-dev">Self Development</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="children">Children's</option>
+            <option value="scifi">Science Fiction</option>
+          </select>
+        </div>
+        <div class="col-md-2 text-md-end">
+          <span class="text-muted"><i class="bi bi-collection" aria-hidden="true"></i> 8 titles</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BOOKS GRID ===================== -->
+  <section class="section-padding">
+    <div class="container">
+      <h2 class="visually-hidden" id="catalogue-heading">Book catalogue</h2>
+      <div id="resultCount" class="visually-hidden" role="status" aria-live="polite"></div>
+      <div id="noResults" class="alert alert-warning text-center d-none" role="status">No books match your search. Try a different keyword or genre.</div>
+      <div class="row g-4">
+
+        <div class="col-sm-6 col-lg-3 book-card-item reveal" data-title="The Great Gatsby" data-author="F. Scott Fitzgerald" data-genre="fiction">
+          <div class="card-custom">
+            <div class="card-img-wrap"><img loading="lazy" decoding="async" width="560" height="760" src="images/book-gatsby.webp" alt="The Great Gatsby cover"></div>
+            <div class="p-3">
+              <span class="badge-genre">Classic Fiction</span>
+              <span class="badge rounded-pill badge-status-available text-white ms-1">Available</span>
+              <h3 class="h5 mt-3 mb-1">The Great Gatsby</h3>
+              <p class="text-muted mb-2">F. Scott Fitzgerald</p>
+              <a href="book-details.html" class="fw-bold">View details for The Great Gatsby <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 book-card-item reveal" data-title="Atomic Habits" data-author="James Clear" data-genre="self-dev">
+          <div class="card-custom">
+            <div class="card-img-wrap"><img loading="lazy" decoding="async" width="560" height="760" src="images/book-habits.webp" alt="Atomic Habits cover"></div>
+            <div class="p-3">
+              <span class="badge-genre">Self Development</span>
+              <span class="badge rounded-pill badge-status-available text-white ms-1">Available</span>
+              <h3 class="h5 mt-3 mb-1">Atomic Habits</h3>
+              <p class="text-muted mb-2">James Clear</p>
+              <a href="book-details-habits.html" class="fw-bold">View details for Atomic Habits <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 book-card-item reveal" data-title="Sapiens" data-author="Yuval Noah Harari" data-genre="nonfiction">
+          <div class="card-custom">
+            <div class="card-img-wrap"><img loading="lazy" decoding="async" width="560" height="760" src="images/book-sapiens.webp" alt="Sapiens cover"></div>
+            <div class="p-3">
+              <span class="badge-genre">Non-Fiction</span>
+              <span class="badge rounded-pill badge-status-borrowed text-white ms-1">Borrowed</span>
+              <h3 class="h5 mt-3 mb-1">Sapiens</h3>
+              <p class="text-muted mb-2">Yuval Noah Harari</p>
+              <a href="book-details-sapiens.html" class="fw-bold">View details for Sapiens <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 book-card-item reveal" data-title="To Kill a Mockingbird" data-author="Harper Lee" data-genre="fiction">
+          <div class="card-custom">
+            <div class="card-img-wrap"><img loading="lazy" decoding="async" width="560" height="760" src="images/book-mockingbird.webp" alt="To Kill a Mockingbird cover"></div>
+            <div class="p-3">
+              <span class="badge-genre">Classic Fiction</span>
+              <span class="badge rounded-pill badge-status-available text-white ms-1">Available</span>
+              <h3 class="h5 mt-3 mb-1">To Kill a Mockingbird</h3>
+              <p class="text-muted mb-2">Harper Lee</p>
+              <a href="book-details-mockingbird.html" class="fw-bold">View details for To Kill a Mockingbird <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 book-card-item reveal" data-title="The Hobbit" data-author="J.R.R. Tolkien" data-genre="fantasy">
+          <div class="card-custom">
+            <div class="card-img-wrap"><img loading="lazy" decoding="async" width="560" height="760" src="images/book-hobbit.webp" alt="The Hobbit cover"></div>
+            <div class="p-3">
+              <span class="badge-genre">Fantasy</span>
+              <span class="badge rounded-pill badge-status-available text-white ms-1">Available</span>
+              <h3 class="h5 mt-3 mb-1">The Hobbit</h3>
+              <p class="text-muted mb-2">J.R.R. Tolkien</p>
+              <a href="book-details-hobbit.html" class="fw-bold">View details for The Hobbit <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 book-card-item reveal" data-title="Charlotte's Web" data-author="E.B. White" data-genre="children">
+          <div class="card-custom">
+            <div class="card-img-wrap"><img loading="lazy" decoding="async" width="560" height="760" src="images/book-charlotte.webp" alt="Charlotte's Web cover"></div>
+            <div class="p-3">
+              <span class="badge-genre">Children's</span>
+              <span class="badge rounded-pill badge-status-available text-white ms-1">Available</span>
+              <h3 class="h5 mt-3 mb-1">Charlotte's Web</h3>
+              <p class="text-muted mb-2">E.B. White</p>
+              <a href="book-details-charlotte.html" class="fw-bold">View details for Charlotte's Web <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 book-card-item reveal" data-title="Dune" data-author="Frank Herbert" data-genre="scifi">
+          <div class="card-custom">
+            <div class="card-img-wrap"><img loading="lazy" decoding="async" width="560" height="760" src="images/book-dune.webp" alt="Dune cover"></div>
+            <div class="p-3">
+              <span class="badge-genre">Science Fiction</span>
+              <span class="badge rounded-pill badge-status-borrowed text-white ms-1">Borrowed</span>
+              <h3 class="h5 mt-3 mb-1">Dune</h3>
+              <p class="text-muted mb-2">Frank Herbert</p>
+              <a href="book-details-dune.html" class="fw-bold">View details for Dune <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 book-card-item reveal" data-title="Educated" data-author="Tara Westover" data-genre="nonfiction">
+          <div class="card-custom">
+            <div class="card-img-wrap"><img loading="lazy" decoding="async" width="560" height="760" src="images/book-educated.webp" alt="Educated cover"></div>
+            <div class="p-3">
+              <span class="badge-genre">Non-Fiction</span>
+              <span class="badge rounded-pill badge-status-available text-white ms-1">Available</span>
+              <h3 class="h5 mt-3 mb-1">Educated</h3>
+              <p class="text-muted mb-2">Tara Westover</p>
+              <a href="book-details-educated.html" class="fw-bold">View details for Educated <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <nav class="mt-5" aria-label="Books pagination">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h2 class="h5"><i class="bi bi-book-half" aria-hidden="true"></i> Silent Library</h2>
+          <p>A quiet, welcoming space to read, learn and connect — proudly serving our community since 2011.</p>
+          <div class="social-icons mt-3">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h2 class="h5">Quick Links</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h5">Support</h2>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h5">Visit Us</h2>
+          <ul>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i> 88 Bishan Street 12, Singapore 570088</li>
+            <li><i class="bi bi-telephone" aria-hidden="true"></i> +65 6123 4567</li>
+            <li><i class="bi bi-envelope" aria-hidden="true"></i> hello@silentlibrary.sg</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <p class="mb-0">&copy; 2026 Silent Library. All rights reserved. | Designed by Pixel Elites Inc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" type="button" aria-label="Back to top"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
+
+  <script src="js/script.min.js" defer></script>
+</body>
+</html>
