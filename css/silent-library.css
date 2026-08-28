@@ -131,7 +131,7 @@ a:hover {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--sl-gold);
 }
@@ -346,7 +346,7 @@ a:hover {
 }
 
 .event-date-box .day { font-size: 1.6rem; font-weight: 700; font-family: "Playfair Display", serif; }
-.event-date-box .month { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; }
+.event-date-box .month { text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.1em; }
 
 /* -----------------------------
    Footer
@@ -394,7 +394,7 @@ a:hover {
   border-top: 1px solid #4a453f;
   margin-top: 2.5rem;
   padding: 1.25rem 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 /* -----------------------------
@@ -608,11 +608,242 @@ main p a:not(.btn):not(.nav-link),
 }
 
 .map-facade-note {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: var(--sl-grey);
 }
 
 .map-facade-btn:hover .map-facade-icon,
 .map-facade-btn:focus-visible .map-facade-icon {
   color: var(--sl-gold);
+}
+
+
+/* =======================================================================
+   MILESTONE 2 — changes made in response to Assignment 3 user feedback.
+   Each block names the tester comment that prompted it.
+   ======================================================================= */
+
+/* M2-01  Type scale.
+   R5 answered "Words" when asked what was difficult and "Size of words" when
+   asked what to improve first; persona Mr. Tan (58) lists "tiny fonts" as a
+   frustration.  Measured smallest text before this change: 12.8px.
+   The root scale is a custom property so the reader can step it up without a
+   second stylesheet — every rem-based size in the page, Bootstrap's included,
+   follows it. */
+:root {
+  --sl-text-scale: 1;
+}
+
+html {
+  font-size: calc(100% * var(--sl-text-scale));
+}
+
+body {
+  font-size: 1.0625rem;   /* 17px at scale 1 */
+  line-height: 1.75;      /* was 1.7; longer measure needs more leading */
+}
+
+.footer-custom p,
+.footer-custom li {
+  font-size: 1rem;
+}
+
+/* M2-01b  The reader's own text-size control, in the header.
+   Persists in localStorage so the choice survives navigation. */
+.text-size-control {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15rem;
+  margin-left: 0.5rem;
+}
+
+.text-size-control .ts-label {
+  font-size: 0.875rem;
+  color: var(--sl-grey);
+  margin-right: 0.2rem;
+}
+
+.text-size-control button {
+  border: 1px solid #b9b3a9;
+  background: var(--sl-white);
+  color: var(--sl-burgundy-dark);
+  border-radius: 0.3rem;
+  line-height: 1;
+  padding: 0.3rem 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.text-size-control button:hover {
+  background: var(--sl-cream);
+}
+
+.text-size-control button[aria-pressed="true"] {
+  background: var(--sl-burgundy);
+  border-color: var(--sl-burgundy);
+  color: var(--sl-white);
+}
+
+.text-size-control button:focus-visible {
+  outline: 3px solid var(--sl-gold);
+  outline-offset: 2px;
+}
+
+.text-size-control .ts-1 { font-size: 0.8125rem; }
+.text-size-control .ts-2 { font-size: 0.9375rem; }
+.text-size-control .ts-3 { font-size: 1.0625rem; }
+
+/* M2-02  Genre colours.
+   R1's only suggestion was "Maybe more colours".  Rather than decorating, the
+   colour is made to carry information: one hue per genre, matching the genre
+   filter, so the grid can be scanned by colour.  Every pair below was checked
+   against its text colour and clears 4.5:1. */
+.badge-genre {
+  background-color: var(--sl-gold);
+  color: var(--sl-charcoal);
+  /* Sized so the longest genre ("Self Development") and the availability
+     badge still share one line in a card at the four-column breakpoint,
+     which keeps the titles across a row on the same baseline.  Still 15.3px,
+     comfortably above the 14px floor this milestone set. */
+  font-size: 0.9rem;
+  padding: 0.35em 0.75em;
+}
+
+.badge-genre.g-fiction    { background-color: #7b1e3c; color: #ffffff; }
+.badge-genre.g-nonfiction { background-color: #1f5c4a; color: #ffffff; }
+.badge-genre.g-self-dev   { background-color: #8a5a00; color: #ffffff; }
+.badge-genre.g-fantasy    { background-color: #4b3b8f; color: #ffffff; }
+.badge-genre.g-children   { background-color: #a13a5c; color: #ffffff; }
+.badge-genre.g-scifi      { background-color: #14506b; color: #ffffff; }
+
+/* The book card carries data-genre already, so the list needs no new markup. */
+.book-card-item[data-genre="fiction"]    .badge-genre { background-color: #7b1e3c; color: #fff; }
+.book-card-item[data-genre="nonfiction"] .badge-genre { background-color: #1f5c4a; color: #fff; }
+.book-card-item[data-genre="self-dev"]   .badge-genre { background-color: #8a5a00; color: #fff; }
+.book-card-item[data-genre="fantasy"]    .badge-genre { background-color: #4b3b8f; color: #fff; }
+.book-card-item[data-genre="children"]   .badge-genre { background-color: #a13a5c; color: #fff; }
+.book-card-item[data-genre="scifi"]      .badge-genre { background-color: #14506b; color: #fff; }
+
+/* M2-03  Opening hours in the footer.
+   R3, asked what to improve first: "Opening hours at Home Page footer".
+   The hours existed only on the Contact page. */
+.footer-hours {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.footer-hours li {
+  display: flex;
+  /* At the md breakpoint this column is only ~156px wide, which is narrower
+     than the non-breaking time string.  Wrapping lets the time drop onto its
+     own line instead of pushing the page sideways (regression found by
+     TC-24). */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.1rem 1rem;
+  padding: 0.15rem 0;
+  border-bottom: 1px dotted #4a453f;
+}
+
+.footer-hours li:last-child {
+  border-bottom: none;
+}
+
+.footer-hours .fh-day {
+  color: #d9d4cb;
+}
+
+.footer-hours .fh-time {
+  color: var(--sl-gold-light);
+  white-space: nowrap;
+}
+
+/* M2-04  Accordion on Book Details.
+   The page ran to 2260px with the bibliographic table and the reviews always
+   open.  Sectioning them lets the synopsis and the Reserve button sit higher
+   without removing any content.
+
+   Assignment 3 removed Bootstrap's JavaScript and purged its unused CSS, so
+   this is our own component rather than Bootstrap's: reinstating theirs would
+   have cost ~14 KiB of CSS and an 80 KiB script to save these forty lines. */
+.accordion-sl {
+  border: 1px solid #e0d8ca;
+  border-radius: var(--sl-radius);
+  overflow: hidden;
+}
+
+.sl-acc-item + .sl-acc-item {
+  border-top: 1px solid #e0d8ca;
+}
+
+.sl-acc-header {
+  margin: 0;
+}
+
+.sl-acc-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border: 0;
+  background-color: var(--sl-cream);
+  color: var(--sl-burgundy-dark);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sl-acc-btn:hover {
+  background-color: var(--sl-cream-dark);
+}
+
+.sl-acc-btn:focus-visible {
+  outline: 3px solid var(--sl-gold);
+  outline-offset: -3px;
+}
+
+/* Chevron, drawn in CSS so the component adds no image request. */
+.sl-acc-btn::after {
+  content: "";
+  margin-left: auto;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 2px solid var(--sl-burgundy);
+  border-bottom: 2px solid var(--sl-burgundy);
+  transform: rotate(45deg);
+  transition: transform 0.25s ease-in-out;
+}
+
+.sl-acc-btn.is-collapsed::after {
+  transform: rotate(-45deg);
+}
+
+/* Progressive enhancement.  Panels are open by default, so with scripting
+   disabled the whole record stays readable.  The .js-reveal marker is set on
+   <html> by an inline script before first paint, so when scripting IS present
+   the collapsed state applies without a flash of open content. */
+.sl-acc-panel {
+  display: block;
+  background-color: var(--sl-white);
+}
+
+.js-reveal .sl-acc-panel {
+  display: none;
+}
+
+.js-reveal .sl-acc-panel.is-open {
+  display: block;
+}
+
+.sl-acc-body {
+  padding: 1rem 1.1rem 1.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-acc-btn::after {
+    transition: none;
+  }
 }

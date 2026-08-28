@@ -32,6 +32,14 @@
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="sitemap.html">Sitemap</a></li>
             <li class="nav-item"><a class="nav-link" href="privacy.html">Privacy</a></li>
+            <li class="nav-item d-flex align-items-center justify-content-center">
+              <div class="text-size-control" id="textSizeControl" role="group" aria-label="Text size">
+                <span class="ts-label" aria-hidden="true">Text size</span>
+                <button type="button" class="ts-1" data-size="normal" aria-pressed="true" title="Normal text size"><span aria-hidden="true">A</span><span class="visually-hidden">Normal text size</span></button>
+                <button type="button" class="ts-2" data-size="large" aria-pressed="false" title="Larger text"><span aria-hidden="true">A</span><span class="visually-hidden">Larger text</span></button>
+                <button type="button" class="ts-3" data-size="xlarge" aria-pressed="false" title="Largest text"><span aria-hidden="true">A</span><span class="visually-hidden">Largest text</span></button>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -60,7 +68,7 @@
           </div>
         </div>
         <div class="col-lg-8 reveal">
-          <span class="badge-genre">Non-Fiction</span>
+          <span class="badge-genre g-nonfiction">Non-Fiction</span>
           <span class="badge rounded-pill bg-warning text-dark ms-1">Borrowed</span>
           <h2 class="mt-3 mb-1">Sapiens</h2>
           <p class="text-muted fs-5">by Yuval Noah Harari</p>
@@ -77,28 +85,50 @@
           <p><em>Sapiens</em> traces the history of our species from insignificant African ape to planetary force, organised around three revolutions: the cognitive, the agricultural and the scientific. Harari's central claim is that shared fictions — money, nations, religions, corporations — are what allow humans to cooperate at scale.</p>
           <p>Sweeping and deliberately provocative, it is equally popular with sixth-form history students and with our adult reading circle.</p>
 
-          <div class="table-responsive mt-4">
-            <table class="table table-bordered">
-              <tbody>
-                <tr><th style="width:180px;">Author</th><td>Yuval Noah Harari</td></tr>
-                <tr><th>Genre</th><td>Non-Fiction / History</td></tr>
-                <tr><th>Publisher</th><td>Harvill Secker</td></tr>
-                <tr><th>First Published</th><td>2011</td></tr>
-                <tr><th>ISBN</th><td>978-0-06-231609-7</td></tr>
-                <tr><th>Language</th><td>English</td></tr>
-                <tr><th>Pages</th><td>443</td></tr>
-                <tr><th>Format</th><td>Hardcover, Paperback, eBook</td></tr>
-                <tr><th>Shelf Location</th><td>Non-Fiction Wing, Aisle 2, Shelf A</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3 class="h4 mt-4">Reader Reviews</h3>
-          <div class="quote-block mb-3">
-            "Ambitious and readable. It reframed how I think about money and nations." — Aisha, Member
-          </div>
-          <div class="quote-block">
-            "You will not agree with all of it, and that is rather the point." — Tom, Member
+          <div class="accordion-sl mt-4" id="bookDetailAccordion" data-sl-accordion>
+            <div class="sl-acc-item">
+              <h3 class="sl-acc-header" id="accHeadInfo">
+                <button class="sl-acc-btn" type="button" aria-expanded="true" aria-controls="accInfo">
+                  <i class="bi bi-info-circle me-2" aria-hidden="true"></i> Book Information
+                </button>
+              </h3>
+              <div id="accInfo" class="sl-acc-panel is-open" role="region" aria-labelledby="accHeadInfo">
+                <div class="sl-acc-body">
+                  <div class="table-responsive mt-4">
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr><th style="width:180px;">Author</th><td>Yuval Noah Harari</td></tr>
+                          <tr><th>Genre</th><td>Non-Fiction / History</td></tr>
+                          <tr><th>Publisher</th><td>Harvill Secker</td></tr>
+                          <tr><th>First Published</th><td>2011</td></tr>
+                          <tr><th>ISBN</th><td>978-0-06-231609-7</td></tr>
+                          <tr><th>Language</th><td>English</td></tr>
+                          <tr><th>Pages</th><td>443</td></tr>
+                          <tr><th>Format</th><td>Hardcover, Paperback, eBook</td></tr>
+                          <tr><th>Shelf Location</th><td>Non-Fiction Wing, Aisle 2, Shelf A</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="sl-acc-item">
+              <h3 class="sl-acc-header" id="accHeadReviews">
+                <button class="sl-acc-btn is-collapsed" type="button" aria-expanded="false" aria-controls="accReviews">
+                  <i class="bi bi-chat-quote me-2" aria-hidden="true"></i> Reader Reviews
+                </button>
+              </h3>
+              <div id="accReviews" class="sl-acc-panel" role="region" aria-labelledby="accHeadReviews">
+                <div class="sl-acc-body">
+                  <div class="quote-block mb-3">
+                      "Ambitious and readable. It reframed how I think about money and nations." — Aisha, Member
+                    </div>
+                    <div class="quote-block">
+                      "You will not agree with all of it, and that is rather the point." — Tom, Member
+                    </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -187,6 +217,14 @@
             <li><i class="bi bi-geo-alt" aria-hidden="true"></i> 88 Bishan Street 12, Singapore 570088</li>
             <li><i class="bi bi-telephone" aria-hidden="true"></i> +65 6123 4567</li>
             <li><i class="bi bi-envelope" aria-hidden="true"></i> hello@silentlibrary.sg</li>
+            <li class="mt-3">
+              <strong class="d-block mb-1"><i class="bi bi-clock" aria-hidden="true"></i> Opening Hours</strong>
+              <ul class="footer-hours">
+                <li><span class="fh-day">Mon &ndash; Fri</span><span class="fh-time">9:00 AM &ndash; 9:00 PM</span></li>
+                <li><span class="fh-day">Sat &ndash; Sun</span><span class="fh-time">10:00 AM &ndash; 6:00 PM</span></li>
+                <li><span class="fh-day">Public Holidays</span><span class="fh-time">10:00 AM &ndash; 4:00 PM</span></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>

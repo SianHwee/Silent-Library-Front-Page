@@ -199,4 +199,72 @@ document.addEventListener("DOMContentLoaded", function () {
       contactForm.classList.add("was-validated");
     });
   }
+
+  /* =====================================================================
+     MILESTONE 2 — behaviour added in response to Assignment 3 feedback.
+     ===================================================================== */
+
+  /* M2-01b — reader-controlled text size.
+     Tester R5 answered "Words" when asked what was difficult and "Size of
+     words" when asked what to improve first; the A1 persona Mr. Tan (58)
+     lists "tiny fonts" as a frustration.  The base size was raised in CSS
+     for everyone; this lets a reader who needs more go further still.
+     The step multiplies the root font size, so every rem-based dimension in
+     the page scales with it and the layout keeps its proportions. */
+  const SIZE_KEY = "sl-text-size";
+  const SIZE_STEPS = { normal: 1, large: 1.125, xlarge: 1.25 };
+
+  function applyTextSize(size, persist) {
+    const scale = SIZE_STEPS[size] || 1;
+    document.documentElement.style.setProperty("--sl-text-scale", String(scale));
+    document.querySelectorAll("#textSizeControl button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-size") === size ? "true" : "false");
+    });
+    if (persist) {
+      /* Private-browsing modes can refuse storage; the control must still work. */
+      try { window.localStorage.setItem(SIZE_KEY, size); } catch (e) { /* ignore */ }
+    }
+  }
+
+  const sizeControl = document.getElementById("textSizeControl");
+  if (sizeControl) {
+    let saved = "normal";
+    try { saved = window.localStorage.getItem(SIZE_KEY) || "normal"; } catch (e) { /* ignore */ }
+    if (!SIZE_STEPS[saved]) { saved = "normal"; }
+    applyTextSize(saved, false);
+    sizeControl.addEventListener("click", function (event) {
+      const btn = event.target.closest("button[data-size]");
+      if (btn) { applyTextSize(btn.getAttribute("data-size"), true); }
+    });
+  }
+
+  /* M2-04 — accordion on the Book Details page.
+     Bootstrap's JavaScript was removed in Assignment 3, so this is our own
+     implementation.  Panels are open in CSS by default and collapsed only
+     when scripting is present, so the record stays readable either way. */
+  document.querySelectorAll("[data-sl-accordion]").forEach(function (acc) {
+    acc.addEventListener("click", function (event) {
+      const btn = event.target.closest(".sl-acc-btn");
+      if (!btn || !acc.contains(btn)) { return; }
+      const panel = document.getElementById(btn.getAttribute("aria-controls"));
+      if (!panel) { return; }
+      const willOpen = !panel.classList.contains("is-open");
+
+      /* One panel at a time, which is what makes the page shorter. */
+      acc.querySelectorAll(".sl-acc-panel").forEach(function (p) {
+        p.classList.remove("is-open");
+      });
+      acc.querySelectorAll(".sl-acc-btn").forEach(function (b) {
+        b.classList.add("is-collapsed");
+        b.setAttribute("aria-expanded", "false");
+      });
+
+      if (willOpen) {
+        panel.classList.add("is-open");
+        btn.classList.remove("is-collapsed");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
 });
